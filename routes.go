@@ -16,6 +16,7 @@ func (r *Rocket) routes() http.Handler {
 		mux.Use(middleware.Logger)
 	}
 	mux.Use(middleware.Recoverer)
+	mux.Use(r.SessionLoad)
 
 	return mux
 }
